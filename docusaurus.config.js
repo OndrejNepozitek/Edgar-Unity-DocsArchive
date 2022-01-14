@@ -5,25 +5,18 @@ const remarkBookmarks = require('remark-bookmarks')
 const path = require('path');
 
 module.exports = {
-  title: "Edgar - Unity",
+  title: "Edgar - Unity: Alpha docs archive",
   tagline:
     "Configurable 2D procedural level generator for Unity",
   url: "https://ondrejnepozitek.github.io",
-  baseUrl: "/Edgar-Unity/",
+  baseUrl: "/Edgar-Unity-DocsArchive/",
   favicon: "img/favicon.ico",
   organizationName: "OndrejNepozitek", // Usually your GitHub org/user name.
-  projectName: "Edgar-Unity", // Usually your repo name.
-  onBrokenLinks: "warn",
+  projectName: "Edgar-Unity-DocsArchive", // Usually your repo name.
+  onBrokenLinks: "ignore",
   themeConfig: {
     googleAnalytics: {
       trackingID: 'UA-31904365-17',
-    },
-    algolia: {
-      apiKey: 'b81526b8f4babcdebfa613315ee05014',
-      indexName: 'edgar-unity',
-      searchParameters: {
-        facetFilters: [`version:${versions[0]}`],
-      },
     },
     announcementBar: {
       id: 'support_us',
@@ -35,35 +28,29 @@ module.exports = {
     sidebarCollapsible: false,
     navbar: {
       hideOnScroll: false,
-      title: "Edgar - Unity",
+      title: "Edgar - Unity: Alpha docs archive",
       items: [
-        { to: "versions", label: `v${latestVersion}`, position: "left" },
         {
-          label: 'Docs',
+          label: `Link to live docs (this is only archive)`,
+          to: 'https://ondrejnepozitek.github.io/Edgar-Unity/docs/introduction/',
+          position: 'left',
+        },
+        {
+          label: 'Archive docs',
           to: 'docs/introduction', // "fake" link
           position: 'right',
           activeBaseRegex: `docs/(?!next/(support|team|resources))`,
           items: [
             {
-              label: versions[0],
+              label: `Archive: ${versions[0]}`,
               to: 'docs/introduction',
               activeBaseRegex: `docs/(?!${versions.join('|')}|next)`,
             },
             ...versions.slice(1, 3).map((version) => ({
-              label: version,
+              label: `Archive: ${version}`,
               to: `docs/${version}/introduction`,
             })),
-            {
-              label: 'Master/Unreleased',
-              to: 'docs/next/introduction',
-              activeBaseRegex: `docs/next/(?!support|team|resources)`,
-            },
           ],
-        },
-        {
-          label: "Docs for 3D version (preview)", 
-          to: 'docs/next/3d/introduction',
-          position: "right"
         },
         {
           href: "https://github.com/OndrejNepozitek/Edgar-Unity/",
